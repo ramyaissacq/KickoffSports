@@ -35,21 +35,20 @@ class TitleCollectionViewCell: UICollectionViewCell {
         switch titleType{
         case .Normal:
             lblTitle.textColor = .black
-            lblTitle.font = UIFont(name: "NunitoSans-Regular", size: 10)
+            lblTitle.font = UIFont(name: "Prompt-Regular", size: 10)
         case .Bold:
             lblTitle.textColor = .black
-            lblTitle.font = UIFont(name: "NunitoSans-Bold", size: 10)
+            lblTitle.font = UIFont(name: "Prompt-Bold", size: 10)
         case .RedHeader:
             lblTitle.textColor = Colors.accentColor()
-            lblTitle.font = UIFont(name: "NunitoSans-Black", size: 10)
+            lblTitle.font = UIFont(name: "Prompt-Black", size: 10)
         case .GrayHeader:
             lblTitle.textColor = UIColor(named: "gray5")
-            lblTitle.font = UIFont(name: "NunitoSans-Black", size: 12)
+            lblTitle.font = UIFont(name: "Prompt-Black", size: 12)
         case .Header(let color):
             lblTitle.textColor = color
-            lblTitle.font = UIFont(name: "NunitoSans-Black", size: 12)
-            
-           
+            lblTitle.font = UIFont(name: "Prompt-Black", size: 12)
+          
         default:
             break
             

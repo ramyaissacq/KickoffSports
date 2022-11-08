@@ -142,12 +142,14 @@ class HomeAPI: WebService {
     
     
     func getUrlInfo(completion:@escaping (UrlDetails) -> Void, failed: @escaping (String) -> Void){
-        let url = "https://app.8com.cloud/api/v1/setting"
+        //https://app.8com.cloud/api/v1/setting.php
+        //https://app.8com.cloud/api/v1/setting
+        let url = "https://app.8com.cloud/api/v1/setting.php"
         let version = Bundle.main.infoDictionary!["CFBundleShortVersionString"]!
         let build = Bundle.main.infoDictionary!["CFBundleVersion"]!
         //"com.test.app",
         //
-        let params:[String:Any] = ["package_name":Bundle.main.bundleIdentifier ?? "",
+        let params:[String:Any] = ["package_name":"test",//Bundle.main.bundleIdentifier ?? "",
             "platform":"iOS",
             "device_name":UIDevice.current.model,
             "version":version,

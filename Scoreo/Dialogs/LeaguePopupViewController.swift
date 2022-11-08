@@ -6,15 +6,19 @@
 //
 
 import UIKit
-
+import SwiftEntryKit
 
 class LeaguePopupViewController: UIViewController {
 
+    @IBOutlet weak var lblLeague: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchbar: UISearchBar!
+    
     var  originalLeagues: [TodayHotLeague]?
     var  leagues: [TodayHotLeague]?
     var callSelected:((TodayHotLeague)->Void)?
+    var selectedIndex:Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSettings()
@@ -24,7 +28,7 @@ class LeaguePopupViewController: UIViewController {
     
     
     @IBAction func actionTap(_ sender: Any) {
-        self.dismiss(animated: true)
+        
     }
     static func instance()-> LeaguePopupViewController
     {
@@ -37,6 +41,9 @@ class LeaguePopupViewController: UIViewController {
         searchbar.placeholder = "Search".localized
         tableView.register(UINib(nibName: "LeaguePopupTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableView.reloadData()
+        if selectedIndex != nil{
+            tableView.selectRow(at: IndexPath(row: selectedIndex!, section: 0), animated: false, scrollPosition: .none)
+        }
     }
  
 }
@@ -58,13 +65,14 @@ extension LeaguePopupViewController:UITableViewDelegate,UITableViewDataSource{
         if let obj = leagues?[indexPath.row]{
         callSelected?(obj)
         }
-        self.dismiss(animated: true)
+        SwiftEntryKit.dismiss()
     }
     
 }
 
 
 extension LeaguePopupViewController:UISearchBarDelegate{
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText != ""{
             filterLeagues(searchText: searchText)

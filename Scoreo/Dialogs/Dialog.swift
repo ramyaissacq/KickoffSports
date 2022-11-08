@@ -57,8 +57,8 @@ class Dialog: NSObject {
         attributes.positionConstraints = .fullWidth
         attributes.positionConstraints.safeArea = .empty(fillSafeArea: true)
         attributes.lifecycleEvents.didDisappear = dismissed
-        attributes.entryBackground = .color(color: EKColor(UIColor.white))
-        attributes.roundCorners = EKAttributes.RoundCorners.top(radius: 10)
+        attributes.entryBackground = .clear//.color(color: EKColor(UIColor.white))
+        attributes.roundCorners = EKAttributes.RoundCorners.top(radius: 20)
         SwiftEntryKit.display(entry: viewController, using: attributes)
     }
     
@@ -94,12 +94,14 @@ class Dialog: NSObject {
         openViewControllerAsBottomSheet(touchDismiss: true, viewController: vc, dismissed: nil)
     }
     
-    class func openLeaguePopup(leagues:[TodayHotLeague]?, completed : @escaping (TodayHotLeague)->()){
+    class func openLeaguePopup(leagues:[TodayHotLeague]?,index:Int?, completed : @escaping (TodayHotLeague)->()){
         let vc = LeaguePopupViewController.instance()
         vc.leagues = leagues
+        vc.originalLeagues = leagues
+        vc.selectedIndex = index
         vc.callSelected = completed
         openViewControllerAsBottomSheet(touchDismiss: true, viewController: vc, dismissed: nil)
-        //openViewControllerAsDialog(viewController: vc, dismissed: nil)
+       
        
     }
     

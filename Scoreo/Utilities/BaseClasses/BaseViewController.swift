@@ -28,9 +28,9 @@ class BaseViewController: UIViewController {
         navBarAppearance.configureWithOpaqueBackground()
         navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        //navBarAppearance.backgroundColor = UIColor.black
+        navBarAppearance.backgroundColor = Colors.backgroundColor()
         navBarAppearance.shadowColor = .clear
-       // self.navigationController?.navigationBar.tintColor = .black
+        self.navigationController?.navigationBar.tintColor = Colors.backgroundColor()
         self.navigationController?.navigationBar.standardAppearance = navBarAppearance
         self.navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
        
@@ -51,19 +51,19 @@ class BaseViewController: UIViewController {
     }
     
     func getHeaderLabel(title:String) -> UILabel{
-        let w = title.width(forHeight: 25, font: UIFont(name: "NunitoSans-Bold", size: 23)!)
+        let w = title.width(forHeight: 25, font: UIFont(name: "Prompt-Bold", size: 23)!)
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: w, height: 20))
         label.text = title
-        label.font = UIFont(name: "NunitoSans-Bold", size: 23)
+        label.font = UIFont(name: "Prompt-Bold", size: 23)
         label.textColor = .black
         return label
     }
    
     func getGradientHeaderLabel(title:String) -> UILabel{
-        let w = title.width(forHeight: 25, font: UIFont(name: "NunitoSans-Bold", size: 23)!)
+        let w = title.width(forHeight: 25, font: UIFont(name: "Prompt-Bold", size: 23)!)
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: w, height: 20))
         label.text = title
-        label.font = UIFont(name: "NunitoSans-Bold", size: 23)
+        label.font = UIFont(name: "Prompt-Bold", size: 23)
         let gradient = label.getGradientLayer(bounds: label.bounds)
         label.textColor = label.gradientColor(bounds: label.bounds, gradientLayer: gradient)
         return label

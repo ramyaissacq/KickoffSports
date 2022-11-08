@@ -93,6 +93,7 @@ class HomeVieModel{
         
     }
     
+    
     func getMatchDetails(id:Int){
         HomeAPI().getMatchDetails(id: id) { response in
             if let obj = response.matchList?.first{
@@ -109,6 +110,7 @@ class HomeVieModel{
         }
 
     }
+    
     
     // Basketball apis
     func getBasketballScores(){

@@ -272,7 +272,7 @@ extension LeagueViewController:UICollectionViewDelegate,UICollectionViewDataSour
                 return CGSize(width: w-10, height: 35)
             }
             else{
-                let strW = "Match".localized.width(forHeight: 19, font: UIFont(name: "NunitoSans-Regular", size: 19)!)
+                let strW = "Match".localized.width(forHeight: 19, font: UIFont(name: "Prompt-Regular", size: 19)!)
                let width2 = strW + 16
               return CGSize(width: width2, height: 35)
             }

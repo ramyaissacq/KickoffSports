@@ -223,7 +223,7 @@ extension StandingsTableViewCell:UICollectionViewDelegate,UICollectionViewDataSo
         }
         else if collectionView == collectionViewPoints{
             let str = points?[indexPath.row] ?? ""
-            let w = str.width(forHeight: 14, font: UIFont(name: "NunitoSans-Regular", size: 12)!) + 16
+            let w = str.width(forHeight: 14, font: UIFont(name: "Prompt-Regular", size: 12)!) + 16
             return CGSize(width: w, height: 30)
             //return CGSize(width: 120, height: 30)
             

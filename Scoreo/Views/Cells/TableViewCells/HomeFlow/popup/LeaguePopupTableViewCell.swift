@@ -9,7 +9,7 @@ import UIKit
 
 class LeaguePopupTableViewCell: UITableViewCell {
     @IBOutlet weak var lblLeague:UILabel!
-    @IBOutlet weak var imgLeague:UIImageView!
+    @IBOutlet weak var imgSelection:UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,8 +18,17 @@ class LeaguePopupTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        handleSelection()
 
-        // Configure the view for the selected state
+    }
+    
+    func handleSelection(){
+        if isSelected{
+            imgSelection.image = UIImage(named: "popupSelection")
+        }
+        else{
+            imgSelection.image = UIImage(named: "popupDeselection")
+        }
     }
     
 }

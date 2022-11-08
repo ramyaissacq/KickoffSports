@@ -59,14 +59,9 @@ class ScoresTableViewCell: UITableViewCell {
     @IBOutlet weak var fixedAnalysis: UILabel!
     
     @IBOutlet weak var fixedEvent: UILabel!
-    
-    
     @IBOutlet weak var fixedLeague: UILabel!
     @IBOutlet weak var fixedBriefing: UILabel!
-    
     @IBOutlet weak var homeCardStack: UIStackView!
-    
-    
     @IBOutlet weak var awayCardStack: UIStackView!
     
     //MARK: - Variables

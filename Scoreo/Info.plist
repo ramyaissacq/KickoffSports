@@ -9,8 +9,8 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>NunitoSans-Regular.ttf</string>
-		<string>NunitoSans-Bold.ttf</string>
+		<string>Prompt-Regular.ttf</string>
+		<string>Prompt-Bold.ttf</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>

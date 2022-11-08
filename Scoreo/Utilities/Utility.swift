@@ -28,6 +28,7 @@ class Utility: NSObject {
         case eddmmm = "E, d MMM"
         case edmmmHHmm = "E, d MMM HH:mm"
         case mmmdyyyy = "MMM d, yyyy"
+        case ddmmm = "dd MMM"
     }
     
   
@@ -397,22 +398,10 @@ class Utility: NSObject {
    }
     
     class func gotoHome(){
-        let tabVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabbarNavigation") as! UITabBarController
-        let homeNav =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScoresNav")
-        let SettingsNav =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsNav")
-        
-        if HomeViewController.urlDetails?.map?.count ?? 0 > 0{
-           
-            let newsNav =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewsNav")
-            tabVC.viewControllers = [newsNav,homeNav,SettingsNav]
-            tabVC.selectedIndex = 1
-        }
-        else{
-            tabVC.viewControllers = [homeNav,SettingsNav]
-        }
-        
+        let kickOffNav = UIStoryboard(name: "KickOff", bundle: nil).instantiateViewController(withIdentifier: "KickOffNav")
+    
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = tabVC
+        appDelegate.window?.rootViewController = kickOffNav
     }
     
     class func shareAction(text:String?,url:NSURL?,image:UIImage?,vc:UIViewController){
@@ -466,23 +455,9 @@ class Utility: NSObject {
     
     class func callURlDetailsAPI(){
         HomeAPI().getUrlInfo { response in
-            HomeViewController.urlDetails = response
-            let appDelegate = UIApplication.shared.delegate as? AppDelegate
-            if let tabVC = appDelegate?.window?.rootViewController as? UITabBarController{
-                let homeNav =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScoresNav")
-                let SettingsNav =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsNav")
-                
-                if HomeViewController.urlDetails?.map?.count ?? 0 > 0{
-                   
-                    let newsNav =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewsNav")
-                    tabVC.viewControllers = [newsNav,homeNav,SettingsNav]
-                    tabVC.selectedIndex = 1
-                }
-                else{
-                    tabVC.viewControllers = [homeNav,SettingsNav]
-                }
-            }
-            HomeViewController.showPopup()
+            
+            KickOffViewController.urlDetails = response
+            KickOffViewController.showPopup()
         } failed: { _ in
             
         }

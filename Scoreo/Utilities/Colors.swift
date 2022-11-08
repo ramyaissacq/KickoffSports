@@ -20,14 +20,21 @@ class Colors: NSObject {
     class func blue3Color()-> UIColor
     {
         return UIColor(named: "blue3")!
+        
     }
     
+    class func darktextColor()->UIColor
+    {
+        return UIColor(named: "backColor")!
+    }
     
+   
     //New colors
     class func gradient1Color()->UIColor
     {
         return UIColor(named: "gradient1")!
     }
+    
     class func gradient2Color()->UIColor
     {
         return UIColor(named: "gradient2")!
@@ -38,10 +45,17 @@ class Colors: NSObject {
         return UIColor(named: "textColor")!
     }
     
-    class func darktextColor()->UIColor
+    
+    class func backgroundColor()->UIColor
     {
-        return UIColor(named: "darkTextColor")!
+        return UIColor(named: "backColor")!
     }
+    
+    class func black1Color()->UIColor
+    {
+        return UIColor(named: "black1")!
+    }
+    
     class func gray1Color()-> UIColor
     {
         return UIColor(named: "gray1")!

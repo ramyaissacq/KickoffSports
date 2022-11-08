@@ -312,7 +312,7 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
     //calculating categorySizes
     func calculateCategorySizes(){
         for m in viewModel.categories{
-            let w = m.width(forHeight: 14, font: UIFont(name: "NunitoSans-SemiBold", size: 14)!) + 20
+            let w = m.width(forHeight: 14, font: UIFont(name: "Prompt-SemiBold", size: 14)!) + 20
             categorySizes.append(w)
         }
     }

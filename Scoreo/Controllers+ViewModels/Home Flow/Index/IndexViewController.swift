@@ -65,7 +65,7 @@ class IndexViewController: UIViewController {
         
         //calculating categorySizes
         for m in categories{
-        let w = m.width(forHeight: 14, font: UIFont(name: "NunitoSans-Regular", size: 12)!) + 16
+        let w = m.width(forHeight: 14, font: UIFont(name: "Prompt-Regular", size: 12)!) + 16
             categorySizes.append(w)
     
         }
