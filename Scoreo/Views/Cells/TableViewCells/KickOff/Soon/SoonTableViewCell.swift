@@ -24,7 +24,8 @@ class SoonTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-        backView.roundCorners(corners: [.topLeft,.bottomRight], radius: 11)
+      backView.roundCorners(corners: [.topLeft,.bottomRight], radius: 11)
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

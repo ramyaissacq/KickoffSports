@@ -7,80 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "13ECE985-6F52-4535-954C-9744A88A387F"
+            uuid = "F29FF9A2-C990-4EFE-ABBE-15F8D9E033F0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Scoreo/Controllers+ViewModels/Home Flow/Home/Extension2+HomeVC.swift"
+            filePath = "Scoreo/Controllers+ViewModels/KickOff Flow/Linup/LinupViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "gotoWebview(url:)"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
+            landmarkName = "reloadCollectionViews()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AF9E3EE6-D259-4EF2-96CE-CAB7D30CD914"
+            uuid = "E4509EBD-E9B1-4261-8916-EBD8A5A03F43"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Scoreo/Controllers+ViewModels/Home Flow/Home/Extension2+HomeVC.swift"
+            filePath = "Scoreo/Controllers+ViewModels/KickOff Flow/Linup/LinupViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "gotoWebview(url:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FD676795-A496-4CE7-9DA7-F94F0AA349FF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Scoreo/Controllers+ViewModels/Home Flow/Home/HomeViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "385"
-            endingLineNumber = "385"
-            landmarkName = "showPopup()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DAD170E2-92FB-45B7-8A24-077E2688A70B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Scoreo/Controllers+ViewModels/Home Flow/Home/HomeViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "386"
-            endingLineNumber = "386"
-            landmarkName = "showPopup()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B94E84CD-CF96-4650-8D49-C61A238460E2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Scoreo/Controllers+ViewModels/KickOff Flow/KickOff/KickOffViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
-            landmarkName = "collectionView(_:didSelectItemAt:)"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
+            landmarkName = "reloadCollectionViews()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

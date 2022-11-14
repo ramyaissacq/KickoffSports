@@ -18,6 +18,8 @@ class LiveMatchesTableViewCell: UITableViewCell {
         }
     }
     
+    var callSelection:((Int)->Void)?
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -61,6 +63,10 @@ extension LiveMatchesTableViewCell:UICollectionViewDelegate,UICollectionViewData
         cell.configureCell(obj: matches?[indexPath.row])
         return cell
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        callSelection?(indexPath.row)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

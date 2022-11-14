@@ -25,12 +25,13 @@ class SideMenuViewController:BaseViewController{
     func setupNavBar(){
         let lbl = getHeaderLabel(title: "Settings".localized)
         self.navigationItem.titleView = lbl
+        setBackButton()
     }
     func sendEmail() {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
-            mail.setToRecipients(["tianquan109@gmail.com"])
+            mail.setToRecipients(["general.flyup@gmail.com"])
             //mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
 
             present(mail, animated: true)
@@ -64,9 +65,10 @@ extension SideMenuViewController:UITableViewDelegate,UITableViewDataSource{
             openVC(storyBoard: "SideMenu", identifier: "LanguageViewController")
         case 1:
             
-            Utility.openUrl(url: URL(string: "https://scorepro4.wordpress.com/2022/11/01/privacy-policy")!)
+            Utility.openUrl(url: URL(string: "https://kickoffsports1.wordpress.com/2022/11/12/app-store-privacy-policy/")!)
+            //ScorePro
         case 2:
-            Utility.shareAction(text: "Install ScorePro from apple appstore", url: nil, image: UIImage(named: "launch"), vc: self.parent!)
+            Utility.shareAction(text: "Install Kick-off Sports from apple appstore", url: nil, image: UIImage(named: "launch"), vc: self.parent!)
             
         case 3:
             sendEmail()

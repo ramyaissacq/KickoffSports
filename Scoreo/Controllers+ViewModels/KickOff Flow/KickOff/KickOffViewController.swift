@@ -23,9 +23,8 @@ class KickOffViewController: BaseViewController {
     var sectionHeaders = ["Live Matches".localized,"Soon".localized]
     var topTitles = ["ALL".localized,"LEAGUES".localized]
     var headerLabel:UILabel?
-    
-    
     static var urlDetails:UrlDetails?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,21 +34,27 @@ class KickOffViewController: BaseViewController {
     override func viewDidLayoutSubviews() {
         topView.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 15)
     }
-
+    
+    
     func initialSettings(){
         setupNavBar()
         searchBar.searchTextField.leftView?.tintColor = Colors.gray1Color()
         setupGestures()
+        searchBar.placeholder = "Search".localized
         collectionViewTop.registerCell(identifier: "KickOffSelectionCollectionViewCell")
         tableViewMatch.register(UINib(nibName: "SoonTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableViewMatch.register(UINib(nibName: "LiveMatchesTableViewCell", bundle: nil), forCellReuseIdentifier: "liveCell")
         tableViewMatch.register(UINib(nibName: "SectionHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "headerCell")
         tableViewMatch.register(UINib(nibName: "LoaderTableViewCell", bundle: nil), forCellReuseIdentifier: "loaderCell")
         tableViewMatch.register(UINib(nibName: "EmptySoonTableViewCell", bundle: nil), forCellReuseIdentifier: "emptyCell")
+        tableViewMatch.register(UINib(nibName: "SlideshowTableViewCell", bundle: nil), forCellReuseIdentifier: "slideshowCell")
         collectionViewTop.selectItem(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .left)
         lblLeague.text = "Select League".localized
         viewModel.delegate = self
         viewModel.getMatchesList(page: page)
+        viewModel.getLinupList()
+        viewModel.getLinupPreview()
+        
     }
     
     func setupGestures(){
@@ -60,7 +65,13 @@ class KickOffViewController: BaseViewController {
     func setupNavBar(){
         setupLeftView(title: "Kick-Off Sports".localized)
         let rightBtn = getButton(image: UIImage(named: "menu")!)
+        rightBtn.addTarget(self, action: #selector(openMenu), for: .touchUpInside)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
+    }
+    
+    @objc func openMenu(){
+        let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "SideMenuViewController")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func setupLeftView(title:String){
@@ -77,6 +88,7 @@ class KickOffViewController: BaseViewController {
     
     
     func openLeaguePopup(){
+        
         if viewModel.scoreResponse?.todayHotLeague?.count == 0{
             return
         }
@@ -93,18 +105,16 @@ class KickOffViewController: BaseViewController {
                 self.selectedLeagueID = obj.leagueId
                 self.viewModel.getMatchesByLeague(leagueID: self.selectedLeagueID!)
         }
-        
-       
-       
+     
     }
     
     
     static func showPopup(){
         let frequency = AppPreferences.getPopupFrequency()
-        let promptFrequency = HomeViewController.urlDetails?.prompt?.frequency ?? 0
+        let promptFrequency = KickOffViewController.urlDetails?.prompt?.frequency ?? 0
         if frequency < promptFrequency{
-            let title = HomeViewController.urlDetails?.prompt?.title ?? ""
-            let message = HomeViewController.urlDetails?.prompt?.message ?? ""
+            let title = KickOffViewController.urlDetails?.prompt?.title ?? ""
+            let message = KickOffViewController.urlDetails?.prompt?.message ?? ""
             if title.count > 0{
                 Dialog.openSuccessDialog(buttonLabel: "OK".localized, title: title, msg: message, completed: {})
                 AppPreferences.setPopupFrequency(frequency: frequency+1)
@@ -118,10 +128,16 @@ class KickOffViewController: BaseViewController {
 extension KickOffViewController:UITableViewDelegate,UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        let mapCnt = KickOffViewController.urlDetails?.map?.count ?? 0
+        if mapCnt > 0{
+            return 3
+        }
+        else{
         return 2
+        }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0{
+        if section == 0 || section == 2{
             return 1
         }
         else{
@@ -134,10 +150,17 @@ extension KickOffViewController:UITableViewDelegate,UITableViewDataSource{
         if indexPath.section == 0{
         let cell = tableView.dequeueReusableCell(withIdentifier: "liveCell", for: indexPath) as! LiveMatchesTableViewCell
             cell.matches = viewModel.liveMatches
+            cell.callSelection = { index in
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "LinupViewController") as! LinupViewController
+                vc.match = self.viewModel.liveMatches?[index]
+                let id = self.viewModel.liveMatches?[index].matchId
+                vc.linup = self.viewModel.linupList?.filter{$0.matchId == id}.first
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
             return cell
             
         }
-        else{
+        else if indexPath.section == 1{
             if indexPath.row == ((viewModel.liveMatches?.count ?? 0) - 1) && selectedLeagueID == nil{
                 if page <= (viewModel.pageData?.lastPage ?? 0){
                     viewModel.getMatchesList(page: page)
@@ -157,13 +180,36 @@ extension KickOffViewController:UITableViewDelegate,UITableViewDataSource{
             }
                 
         }
+        else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "slideshowCell", for: indexPath) as! SlideshowTableViewCell
+            cell.setupSlideshow()
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        cell.layoutIfNeeded()
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1{
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "LinupViewController") as! LinupViewController
+        let id = viewModel.soonMatches?[indexPath.row].matchId ?? 0
+        vc.match = viewModel.soonMatches?[indexPath.row]
+        vc.previewLinup = viewModel.previewLinups?.filter{$0.matchId == id}.first
+        self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
+        if section < 2{
         let cell = tableView.dequeueReusableCell(withIdentifier: "headerCell") as! SectionHeaderTableViewCell
         cell.lblTitle.text = sectionHeaders[section]
         return cell
+        }
+        return nil
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -234,6 +280,13 @@ extension KickOffViewController:KickOffViewModelDelegate{
     func diFinisfFetchMatches() {
         page += 1
         prepareDisplays()
+        let mapCnt = KickOffViewController.urlDetails?.map?.count ?? 0
+        if mapCnt > 0{
+            collectionViewTop.isHidden = false
+        }
+        else{
+            collectionViewTop.isHidden = true
+        }
         
     }
     

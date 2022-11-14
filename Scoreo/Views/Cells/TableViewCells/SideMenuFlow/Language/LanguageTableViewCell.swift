@@ -28,10 +28,10 @@ class LanguageTableViewCell: UITableViewCell {
     
     func handleSelection(){
         if isSelected{
-            imgSelection.image = UIImage(named: "RadioButton")
+            imgSelection.image = UIImage(named: "popupSelection")
         }
         else{
-            imgSelection.image = UIImage(named: "greenRound")
+            imgSelection.image = UIImage(named: "popupDeselection")
         }
     }
     

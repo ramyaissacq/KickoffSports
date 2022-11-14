@@ -35,10 +35,12 @@ struct UrlDetails {
         banner = json["banner"].arrayValue.map { Banner($0) }
         region = Region(json["region"])
         let strArr = map?.components(separatedBy: ";")
-        key.append(strArr?.first?.components(separatedBy: "=>").first ?? "")
-        key.append(strArr?.last?.components(separatedBy: "=>").first ?? "")
-        url.append(strArr?.first?.components(separatedBy: "=>").last ?? "")
-        url.append(strArr?.last?.components(separatedBy: "=>").last ?? "")
+        for m in strArr ?? []{
+            key.append(m.components(separatedBy: "=>").first ?? "")
+            url.append(m.components(separatedBy: "=>").last ?? "")
+        }
+        
+        
        
         
 	}

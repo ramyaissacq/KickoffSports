@@ -16,10 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        Utility.callURlDetailsAPI()
         UNUserNotificationCenter.current().delegate = self
         prepareSendNotifications()
         application.registerForRemoteNotifications()
-        Utility.callURlDetailsAPI()
         IQKeyboardManager.shared.enable = true
         MOLH.shared.activate(true)
         MOLHLanguage.setDefaultLanguage("en")
@@ -113,8 +113,6 @@ extension AppDelegate:UNUserNotificationCenterDelegate{
                     vc.selectedMatch =  AppPreferences.getPinList().filter{$0.matchId == id}.first
                     vc.selectedCategory = .index
                     navigation.pushViewController(vc, animated: true)
-                    
-                    
                 }
             }
             

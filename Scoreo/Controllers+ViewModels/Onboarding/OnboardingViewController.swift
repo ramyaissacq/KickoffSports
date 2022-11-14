@@ -10,9 +10,9 @@ import UIKit
 class OnboardingViewController: UIViewController {
     
     var current = 0
-    var titles = ["Welcome to ScorePro".localized,"Football".localized,"Live Score Updates".localized,"Not Just Another App".localized]
+    var titles = ["Welcome to Kick-Off Sports".localized,"Lineups".localized,"Player Info".localized]
     
-    var descriptions = ["ScorePro is your one stop shop to your world of sports. Say goodbye to googling results and keeping tabs on your favourite teams and say hello to a world of infotainment all on your fingertips! ".localized,"Football events like you’ve never seen them before. From the leagues to the World Cup and everything in between, we have it covered".localized,"As it happens, because even a second too late is too late in our books. We take the match from the field and put it on your screen, so that you’re in the know as it happens".localized,"You deserve the best and your favourite team needs your support. We get you in to the action like never before. Wanna know how your team is going to perform? No problem!".localized]
+    var descriptions = ["Welcome to the last app you’ll download for all your sports related content! Kick-off your day with a bang with Kick-Off Sports and don’t miss a beat all day every day ".localized,"Is your favourite team taking to the field today? Check out their lineup and how they stack against the opponents! For every sport, we’ll have the lineups ready for your viewing pleasure the moment they’re announced, all without delay.".localized,"Lineups are nothing but meaningless stats without player info! You’ll get player details on the press of a button, their stats, their best performance, greatest triumphs and lowest points, as well as how they fit into the squad.".localized]
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -22,6 +22,8 @@ class OnboardingViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+   
     
     func initialSettings(){
         collectionView.registerCell(identifier: "OnboardingCollectionViewCell")
@@ -71,11 +73,13 @@ class OnboardingViewController: UIViewController {
 
 
 extension OnboardingViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return titles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OnboardingCollectionViewCell", for: indexPath) as! OnboardingCollectionViewCell
         let img = UIImage(named: "onboarding\(indexPath.row+1)")!
         cell.pageControl.numberOfPages = titles.count
@@ -83,8 +87,6 @@ extension OnboardingViewController:UICollectionViewDelegate,UICollectionViewData
         cell.callNext = {
             self.moveForward()
         }
-        
-        
         return cell
     }
     

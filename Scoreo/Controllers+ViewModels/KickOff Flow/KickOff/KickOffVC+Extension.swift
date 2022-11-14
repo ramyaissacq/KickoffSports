@@ -56,7 +56,7 @@ extension KickOffViewController:UISearchBarDelegate{
     }
     
     func gotoWebview(url:String){
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "WebViewViewController") as! WebViewViewController
+        let vc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "WebViewViewController") as! WebViewViewController
         if url != ""{
             vc.urlString = url
         }
@@ -64,6 +64,9 @@ extension KickOffViewController:UISearchBarDelegate{
        
         searchBar.text = ""
         searchBar.endEditing(true)
+        self.viewModel.liveMatches = self.viewModel.OriginalLiveMatches
+        self.viewModel.soonMatches = self.viewModel.OriginalSoonMatches
+        prepareViews()
     }
     
     

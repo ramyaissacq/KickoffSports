@@ -40,14 +40,14 @@
 "America's Cup" = "Piala Amerika";
 "Football" = "Sepak bola";
 "Basketball" = "Bola basket";
-"Welcome to ScorePro" = "Welcome to ScorePro";
-"Live Score Updates" = "Live Score Updates";
-"Not Just Another App" = "Not Just Another App";
-"ScorePro is your one stop shop to your world of sports. Say goodbye to googling results and keeping tabs on your favourite teams and say hello to a world of infotainment all on your fingertips! " = "ScorePro is your one stop shop to your world of sports. Say goodbye to googling results and keeping tabs on your favourite teams and say hello to a world of infotainment all on your fingertips! ";
-"Football events like you’ve never seen them before. From the leagues to the World Cup and everything in between, we have it covered" = "Football events like you’ve never seen them before. From the leagues to the World Cup and everything in between, we have it covered";
-"As it happens, because even a second too late is too late in our books. We take the match from the field and put it on your screen, so that you’re in the know as it happens" = "As it happens, because even a second too late is too late in our books. We take the match from the field and put it on your screen, so that you’re in the know as it happens";
-
-"You deserve the best and your favourite team needs your support. We get you in to the action like never before. Wanna know how your team is going to perform? No problem!" = "You deserve the best and your favourite team needs your support. We get you in to the action like never before. Wanna know how your team is going to perform? No problem!";
+"Welcome to Kick-Off Sports" = "Welcome to Kick-Off Sports";
+"Lineups" = "Lineups";
+"Player Info" = "Player Info";
+"Welcome to the last app you’ll download for all your sports related content! Kick-off your day with a bang with Kick-Off Sports and don’t miss a beat all day every day " = "Welcome to the last app you’ll download for all your sports related content! Kick-off your day with a bang with Kick-Off Sports and don’t miss a beat all day every day";
+"Is your favourite team taking to the field today? Check out their lineup and how they stack against the opponents! For every sport, we’ll have the lineups ready for your viewing pleasure the moment they’re announced, all without delay." = "Is your favourite team taking to the field today? Check out their lineup and how they stack against the opponents! For every sport, we’ll have the lineups ready for your viewing pleasure the moment they’re announced, all without delay.";
+"Lineups are nothing but meaningless stats without player info! You’ll get player details on the press of a button, their stats, their best performance, greatest triumphs and lowest points, as well as how they fit into the squad.
+" = "Lineups are nothing but meaningless stats without player info! You’ll get player details on the press of a button, their stats, their best performance, greatest triumphs and lowest points, as well as how they fit into the squad.
+";
 "Privacy Policy" = "Kebijakan pribadi";
 "Language" = "Bahasa";
 "Share App" = "Bagikan Aplikasi";
@@ -206,6 +206,18 @@
 ////////////////////////////////////
 
 
-"Live Matches" = "Live Matches";
-"Select League" = "Select League";
-"There is no match happening soon" = "There is no match happening soon";
+"Live Matches" = "Pertandingan Langsung";
+"Select League" = "Pilih Liga";
+"There is no match happening soon" = "Tidak ada pertandingan yang terjadi segera";
+"Lineups" = "susunan pemain";
+"There is no match \n happening now" = "Tidak ada kecocokan \n terjadi sekarang";
+"Name" = "Nama";
+"Country" = "Negara";
+"Date Of Birth" = "Tanggal lahir";
+"Player Value" = "Nilai Pemain";
+"Height" = "Tinggi";
+"Weight" = "Bobot";
+"Profile" = "Profil";
+"Kick-Off Sports" = "Kick-Off Sports";
+"Bench" = "Bench";
+"Formation" = "Formation";

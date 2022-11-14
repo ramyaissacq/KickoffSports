@@ -141,6 +141,7 @@ class HomeAPI: WebService {
     }
     
     
+    
     func getUrlInfo(completion:@escaping (UrlDetails) -> Void, failed: @escaping (String) -> Void){
         //https://app.8com.cloud/api/v1/setting.php
         //https://app.8com.cloud/api/v1/setting
@@ -149,7 +150,7 @@ class HomeAPI: WebService {
         let build = Bundle.main.infoDictionary!["CFBundleVersion"]!
         //"com.test.app",
         //
-        let params:[String:Any] = ["package_name":"test",//Bundle.main.bundleIdentifier ?? "",
+        let params:[String:Any] = ["package_name":Bundle.main.bundleIdentifier ?? "",
             "platform":"iOS",
             "device_name":UIDevice.current.model,
             "version":version,
@@ -160,6 +161,24 @@ class HomeAPI: WebService {
             completion(response)
         }, failed: failed)
 
+    }
+    
+    //KickOff
+    
+    func getLinupPreview(completion:@escaping (LinupPreview) -> Void, failed: @escaping (String) -> Void){
+        let url = BaseUrl.getBaseUrl() + EndPoints.lineupPreview.rawValue
+        get(url: url, params: [:], completion: { json in
+            let response = LinupPreview(json!)
+            completion(response)
+        }, failed: failed)
+    }
+    
+    func getLinup(completion:@escaping (LinupResponse) -> Void, failed: @escaping (String) -> Void){
+        let url = BaseUrl.getBaseUrl() + EndPoints.linup.rawValue
+        get(url: url, params: [:], completion: { json in
+            let response = LinupResponse(json!)
+            completion(response)
+        }, failed: failed)
     }
     
    

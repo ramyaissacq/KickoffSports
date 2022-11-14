@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Prompt-Regular.ttf">
+            <string>Prompt-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PlayerCollectionViewCell" customModule="Scoreo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="185" height="91"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="185" height="91"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fgd-gs-huM" userLabel="GoalKeeperView">
+                        <rect key="frame" x="67.5" y="0.0" width="50" height="55.5"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="player1" translatesAutoresizingMaskIntoConstraints="NO" id="eoP-0U-J4U">
+                                <rect key="frame" x="5" y="0.0" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="7lv-gt-5d6"/>
+                                    <constraint firstAttribute="width" constant="40" id="kYz-Gj-Fur"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dwayne" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agD-9V-wSt">
+                                <rect key="frame" x="0.0" y="40" width="50" height="15.5"/>
+                                <fontDescription key="fontDescription" name="Prompt-Regular" family="Prompt" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eoP-0U-J4U" firstAttribute="top" secondItem="Fgd-gs-huM" secondAttribute="top" id="0cB-ew-nHe"/>
+                            <constraint firstItem="agD-9V-wSt" firstAttribute="leading" secondItem="Fgd-gs-huM" secondAttribute="leading" id="QIW-bB-DDW"/>
+                            <constraint firstAttribute="trailing" secondItem="agD-9V-wSt" secondAttribute="trailing" id="ROh-tt-rJb"/>
+                            <constraint firstAttribute="bottom" secondItem="agD-9V-wSt" secondAttribute="bottom" id="RVU-vm-s7z"/>
+                            <constraint firstItem="agD-9V-wSt" firstAttribute="top" secondItem="eoP-0U-J4U" secondAttribute="bottom" id="ahQ-cP-9JI"/>
+                            <constraint firstItem="eoP-0U-J4U" firstAttribute="centerX" secondItem="Fgd-gs-huM" secondAttribute="centerX" id="iai-1B-PCR"/>
+                            <constraint firstAttribute="width" constant="50" id="oAM-Zj-85V"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="Fgd-gs-huM" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="JqK-JA-8ak"/>
+                <constraint firstItem="Fgd-gs-huM" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="V8x-N4-oBt"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Fgd-gs-huM" secondAttribute="bottom" id="mhL-1S-pf6"/>
+            </constraints>
+            <size key="customSize" width="185" height="91"/>
+            <connections>
+                <outlet property="imgPlayer" destination="eoP-0U-J4U" id="r60-5P-MCg"/>
+                <outlet property="lblName" destination="agD-9V-wSt" id="eid-If-WP7"/>
+            </connections>
+            <point key="canvasLocation" x="229.71014492753625" y="79.352678571428569"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="player1" width="97" height="96"/>
+    </resources>
+</document>

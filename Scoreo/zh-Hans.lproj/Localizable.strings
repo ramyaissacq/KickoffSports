@@ -41,14 +41,13 @@
 "America's Cup" = "美洲杯";
 "Football" = "足球";
 "Basketball" = "篮球";
-"Welcome to ScorePro" = "欢迎来到 泰坦体育";
-"Live Score Updates" = "直播比分更新";
-"Not Just Another App" = "不仅仅是另一个应用程序";
-"ScorePro is your one stop shop to your world of sports. Say goodbye to googling results and keeping tabs on your favourite teams and say hello to a world of infotainment all on your fingertips! " = "泰坦体育是你通往体育世界的一站式商店。告别搜索结果和关注你最喜欢的球队，向你指尖上的信息娱乐世界问好吧！我们没有任何东西不涉及。没有什么是我们不知道的。你在寻找赛程、更新、转会、预测或大宗交易？我们已经为你准备好了。加入我们，享受终极体育体验";
-"Football events like you’ve never seen them before. From the leagues to the World Cup and everything in between, we have it covered" = "你从未见过这样的足球赛事。从金球奖到世界杯，以及两者之间的一切，我们都有覆盖。无论你最喜欢的球员是否在考虑转会，或者你支持的球队是否在为冠军而努力，你都会在第一时间从泰坦体育听到。我们涵盖一切，所以你可以躺下享受。";
-"As it happens, because even a second too late is too late in our books. We take the match from the field and put it on your screen, so that you’re in the know as it happens" = "因为在我们的看中，哪怕是晚一秒也是太晚了。我们把比赛从现场带到你的屏幕上，让你在比赛发生时就能知道。你不再需要等待结果和刷新页面了! 不管是什么比赛，也不管是什么球队，你都会得到一个银盘上的分数。";
-
-"You deserve the best and your favourite team needs your support. We get you in to the action like never before. Wanna know how your team is going to perform? No problem!" = "你应该得到最好的，你最喜欢的球队需要你的支持。我们让你以前所未有的方式参与到行动中。想知道你的球队将如何表现吗？没问题! 我们的分析和评论将使你掌握在其他地方无法得到的知识。想知道球员将如何比较？我们为你提供。我们被称为体育界的天气预报员不是没有道理的!";
+"Welcome to Kick-Off Sports" = "欢迎来到启球体育";
+"Lineups" = "阵容";
+"Player Info" = "球员信息";
+"Welcome to the last app you’ll download for all your sports related content! Kick-off your day with a bang with Kick-Off Sports and don’t miss a beat all day every day " = "欢迎来到你将下载的最后一个与体育有关的应用程序！在这里，你可以看到所有与体育有关的内容。用启球体育为你的一天开个好头，每天都不会错过任何一个节奏。";
+"Is your favourite team taking to the field today? Check out their lineup and how they stack against the opponents! For every sport, we’ll have the lineups ready for your viewing pleasure the moment they’re announced, all without delay." = "你喜欢的球队今天要上场吗？看看他们的阵容，以及他们如何与对手抗衡! 对于每一项运动，我们都会在宣布阵容的那一刻为你准备好观看的乐趣，一切都不会拖延。";
+"Lineups are nothing but meaningless stats without player info! You’ll get player details on the press of a button, their stats, their best performance, greatest triumphs and lowest points, as well as how they fit into the squad.
+" = "如果没有球员信息，阵容只是毫无意义的统计! 你只需按下一个按钮，就能得到球员的详细资料，他们的统计资料，他们的最佳表现，最大的胜利和最低点，以及他们如何融入球队的情况。";
 "Privacy Policy" = "隐私政策";
 "Language" = "语言";
 "Share App" = "分享应用";
@@ -210,6 +209,18 @@
 ////////////////////////////////////
 
 
-"Live Matches" = "Live Matches";
-"Select League" = "Select League";
-"There is no match happening soon" = "There is no match happening soon";
+"Live Matches" = "现场比赛";
+"Select League" = "选择联赛";
+"There is no match happening soon" = "近期没有比赛";
+"Lineups" = "阵容安排";
+"There is no match \n happening now" = "现在没有比赛";
+"Name" = "姓名";
+"Country" = "国籍";
+"Date Of Birth" = "出生日期";
+"Player Value" = "玩家价值";
+"Height" = "身高";
+"Weight" = "体重";
+"Profile" = "头像";
+"Kick-Off Sports" = "启球体育";
+"Bench" = "队员们";
+"Formation" = "组建";

@@ -24,11 +24,15 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        let gradient = btnNext.getGradientLayer(bounds: btnNext.bounds)
-        btnNext.backgroundColor = btnNext.gradientColor(bounds: btnNext.bounds, gradientLayer: gradient)
+        
         btnNext.setTitle("Next".localized, for: .normal)
         btnSkip.setTitle("Skip".localized, for: .normal)
         
+    }
+    
+    override func layoutSubviews() {
+        let gradient = btnNext.getGradientLayer(bounds: btnNext.bounds)
+        btnNext.backgroundColor = btnNext.gradientColor(bounds: btnNext.bounds, gradientLayer: gradient)
     }
     
     func configureCell(title:String,description:String,image:UIImage,index:Int){

@@ -55,9 +55,11 @@ class BaseViewController: UIViewController {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: w, height: 20))
         label.text = title
         label.font = UIFont(name: "Prompt-Bold", size: 23)
-        label.textColor = .black
+        label.textColor = .white
         return label
     }
+    
+   
    
     func getGradientHeaderLabel(title:String) -> UILabel{
         let w = title.width(forHeight: 25, font: UIFont(name: "Prompt-Bold", size: 23)!)
