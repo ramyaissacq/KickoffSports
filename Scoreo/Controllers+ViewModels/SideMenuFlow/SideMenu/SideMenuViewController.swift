@@ -68,13 +68,13 @@ extension SideMenuViewController:UITableViewDelegate,UITableViewDataSource{
             Utility.openUrl(url: URL(string: "https://kickoffsports1.wordpress.com/2022/11/12/app-store-privacy-policy/")!)
             //ScorePro
         case 2:
-            Utility.shareAction(text: "Install Kick-off Sports from apple appstore", url: nil, image: UIImage(named: "launch"), vc: self.parent!)
+            Utility.shareAction(text: "Install Kick-off Sports from apple appstore", url: URL(string: "https://apps.apple.com/us/app/kick-off-sports/id6444379384"), image: UIImage(named: "launch"), vc: self.parent!)
             
         case 3:
             sendEmail()
             
         case 4:
-            Utility.rateApp(id: "")
+            Utility.rateApp(id: "6444379384")
             
             
         default:

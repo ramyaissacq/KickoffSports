@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -115,30 +116,48 @@
                                     <constraint firstAttribute="trailing" secondItem="CJZ-Ja-iR4" secondAttribute="trailing" constant="15" id="hdK-RI-7SC"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="X07-7n-0af">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iVO-Jc-eeB">
                                 <rect key="frame" x="15" y="169" width="384" height="683"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="iJj-Le-gQP"/>
-                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="LrI-qo-tLa"/>
-                                </connections>
-                            </tableView>
+                                <subviews>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xX5-oo-JaI" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="130"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="130" id="u52-Vw-xzP"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="X07-7n-0af">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="683"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Y6W-OH-hqX" id="iJj-Le-gQP"/>
+                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="LrI-qo-tLa"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="screenBackColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="X07-7n-0af" secondAttribute="trailing" constant="15" id="Obd-Py-UMg"/>
-                            <constraint firstItem="X07-7n-0af" firstAttribute="top" secondItem="jip-8o-9jy" secondAttribute="bottom" constant="10" id="R1r-Ze-nip"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="X07-7n-0af" secondAttribute="bottom" constant="10" id="iMi-9q-vqg"/>
+                            <constraint firstItem="iVO-Jc-eeB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="Gv8-0c-rqW"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="iVO-Jc-eeB" secondAttribute="bottom" constant="10" id="dIb-S7-2Yp"/>
                             <constraint firstItem="jip-8o-9jy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="o5T-As-lBp"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="iVO-Jc-eeB" secondAttribute="trailing" constant="15" id="rxy-Bs-XrN"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="top" secondItem="jip-8o-9jy" secondAttribute="top" id="u4s-GX-7QS"/>
-                            <constraint firstItem="X07-7n-0af" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="wdV-g2-axN"/>
                             <constraint firstItem="jip-8o-9jy" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="xWh-u9-Bqr"/>
+                            <constraint firstItem="iVO-Jc-eeB" firstAttribute="top" secondItem="jip-8o-9jy" secondAttribute="bottom" constant="10" id="zmS-NT-28e"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PDv-zH-dWb"/>
                     <connections>
                         <outlet property="collectionViewTop" destination="ffS-OY-j4J" id="xSn-ON-6wI"/>
+                        <outlet property="imageSlideshow" destination="xX5-oo-JaI" id="isR-ni-ns3"/>
                         <outlet property="lblLeague" destination="xgJ-mP-ske" id="SvR-XM-Q4U"/>
                         <outlet property="leagueView" destination="j7d-CB-Xi9" id="oAc-Rb-eJR"/>
                         <outlet property="searchBar" destination="LjT-p2-RhN" id="DLY-py-kwG"/>
@@ -245,14 +264,14 @@
                                                             <constraint firstItem="Yi1-J1-qYV" firstAttribute="top" secondItem="Zby-ha-cMl" secondAttribute="bottom" id="vkt-Y7-Rqe"/>
                                                         </constraints>
                                                     </view>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3Gl-Pj-b49">
-                                                        <rect key="frame" x="0.0" y="-65" width="346" height="370"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="3Gl-Pj-b49">
+                                                        <rect key="frame" x="0.0" y="-78" width="346" height="383"/>
                                                         <subviews>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YhR-05-pok">
-                                                                <rect key="frame" x="0.0" y="0.0" width="346" height="70"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="346" height="75"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="70" id="bOO-U6-E5C"/>
+                                                                    <constraint firstAttribute="height" constant="75" id="bOO-U6-E5C"/>
                                                                 </constraints>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0vf-Xp-xAr">
                                                                     <size key="itemSize" width="128" height="128"/>
@@ -267,10 +286,10 @@
                                                                 </connections>
                                                             </collectionView>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6ZC-Nu-n6b">
-                                                                <rect key="frame" x="0.0" y="75" width="346" height="70"/>
+                                                                <rect key="frame" x="0.0" y="77" width="346" height="75"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="70" id="lKo-PB-eAu"/>
+                                                                    <constraint firstAttribute="height" constant="75" id="lKo-PB-eAu"/>
                                                                 </constraints>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Akh-gH-GnG">
                                                                     <size key="itemSize" width="128" height="128"/>
@@ -285,10 +304,10 @@
                                                                 </connections>
                                                             </collectionView>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rd2-57-DFr">
-                                                                <rect key="frame" x="0.0" y="150" width="346" height="70"/>
+                                                                <rect key="frame" x="0.0" y="154" width="346" height="75"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="70" id="42Q-k4-7Ko"/>
+                                                                    <constraint firstAttribute="height" constant="75" id="42Q-k4-7Ko"/>
                                                                 </constraints>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NwC-ey-lwf">
                                                                     <size key="itemSize" width="128" height="128"/>
@@ -303,10 +322,10 @@
                                                                 </connections>
                                                             </collectionView>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vCp-Jt-RlW">
-                                                                <rect key="frame" x="0.0" y="225" width="346" height="70"/>
+                                                                <rect key="frame" x="0.0" y="231" width="346" height="75"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="70" id="aPi-gT-GCL"/>
+                                                                    <constraint firstAttribute="height" constant="75" id="aPi-gT-GCL"/>
                                                                 </constraints>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hvH-xQ-B4z">
                                                                     <size key="itemSize" width="128" height="128"/>
@@ -321,10 +340,10 @@
                                                                 </connections>
                                                             </collectionView>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eRP-8h-zcU">
-                                                                <rect key="frame" x="0.0" y="300" width="346" height="70"/>
+                                                                <rect key="frame" x="0.0" y="308" width="346" height="75"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="70" id="1b7-mL-Y42"/>
+                                                                    <constraint firstAttribute="height" constant="75" id="1b7-mL-Y42"/>
                                                                 </constraints>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rPl-q6-rmc">
                                                                     <size key="itemSize" width="128" height="128"/>
@@ -352,6 +371,12 @@
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <real key="value" value="7"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </imageView>
@@ -821,5 +846,8 @@
         <namedColor name="textColor">
             <color red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

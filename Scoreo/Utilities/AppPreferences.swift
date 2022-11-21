@@ -14,9 +14,45 @@ class AppPreferences {
         case basketBallHighlights = "basketBallHighlights"
         case IsFirstRun = "IsFirstRun"
         case popupFrequency = "popupFrequency"
+        case mapData = "mapData"
+         case isSearched = "isSearched"
         
         
     }
+    
+    class func setIsSearched(value: Bool)
+    {
+        let userDefaults = UserDefaults.standard
+        userDefaults.setValue(value, forKey: Keys.isSearched.rawValue)
+    }
+    
+    class func getIsSearched() -> Bool
+    {
+        let userDefaults = UserDefaults.standard
+        let value = userDefaults.bool(forKey: Keys.isSearched.rawValue)
+        
+        return value
+        
+    }
+    
+    
+    class func setMapObject(obj:Mapping){
+        
+     let userDefaults = UserDefaults.standard
+     userDefaults.set(obj.toDictionary(), forKey: Keys.mapData.rawValue)
+        
+         }
+    
+   
+       class func getMapObject() -> Mapping?{
+           let userDefaults = UserDefaults.standard
+           if let mapData = userDefaults.object(forKey: Keys.mapData.rawValue) as? [String:Any]
+           {
+               let mapDataModel = Mapping.init(JSON(mapData))
+               return mapDataModel
+           }
+           return nil
+       }
     
     class func addToHighlights(obj:MatchList)
     {

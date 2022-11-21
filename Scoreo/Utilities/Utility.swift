@@ -404,7 +404,18 @@ class Utility: NSObject {
         appDelegate.window?.rootViewController = kickOffNav
     }
     
-    class func shareAction(text:String?,url:NSURL?,image:UIImage?,vc:UIViewController){
+    class func openWebView(){
+        let navigation = UINavigationController()
+        let vc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "WebViewViewController") as! WebViewViewController
+        vc.urlString = AppPreferences.getMapObject()?.redirectUrl ?? ""
+       // vc.fromStart = true
+        navigation.viewControllers = [vc]
+        (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController = navigation
+        
+    }
+    
+    
+    class func shareAction(text:String?,url:URL?,image:UIImage?,vc:UIViewController){
         
         var items = [Any]()
         if text != nil{
@@ -455,9 +466,10 @@ class Utility: NSObject {
     
     class func callURlDetailsAPI(){
         HomeAPI().getUrlInfo { response in
-            
+            DispatchQueue.main.async {
             KickOffViewController.urlDetails = response
             KickOffViewController.showPopup()
+            }
         } failed: { _ in
             
         }

@@ -43,6 +43,7 @@ class WebService {
             print(params!)
         }
         if(Utility.isNetworkConnected()){
+            URLCache.shared.removeAllCachedResponses()
             var encoding: ParameterEncoding?
             if(method == .get)
             {

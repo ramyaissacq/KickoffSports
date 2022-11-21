@@ -48,7 +48,7 @@ class HomeViewController: BaseViewController {
     var timerPinsAlert = Timer()
     var timerHighlightsRefresh = Timer()
     var isHighlights = false
-    static var urlDetails:UrlDetails?
+    //static var urlDetails:UrlDetails?
     
     var timeArray = ["Today".localized,"Result".localized,"Schedule".localized]
     var sportsView:SportsView?
@@ -255,12 +255,12 @@ class HomeViewController: BaseViewController {
     
     
     @objc func tapLeague(){
-        let mapCnt = HomeViewController.urlDetails?.map?.count ?? 0
-        if mapCnt > 0{
-            if selectedSportsType == .soccer && selectedTimeIndex == 0{
-            openLeaguePopup()
-        }
-        }
+//        let mapCnt = HomeViewController.urlDetails?.map?.count ?? 0
+//        if mapCnt > 0{
+//            if selectedSportsType == .soccer && selectedTimeIndex == 0{
+//            openLeaguePopup()
+//        }
+//        }
         
     }
     
@@ -346,51 +346,51 @@ class HomeViewController: BaseViewController {
     
     func setupSlideshow(){
        
-        pageIndicator.currentPageIndicatorTintColor =  Colors.accentColor()
-        pageIndicator.pageIndicatorTintColor = UIColor.black
-        pageIndicator.numberOfPages = HomeViewController.urlDetails?.banner?.count ?? 0
-        imageSlideshow.pageIndicator = pageIndicator
-        imageSlideshow.contentScaleMode = .scaleAspectFill
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
-        imageSlideshow.addGestureRecognizer(gestureRecognizer)
-        if HomeViewController.urlDetails?.banner?.count ?? 0 > 0{
-            var images = [InputSource]()
-            for m in HomeViewController.urlDetails?.banner ?? []{
-                if let src = KingfisherSource(urlString: m.image ?? ""){
-                    images.append(src)
-                }
-            }
-            imageSlideshow.setImageInputs(images)
-            imageSlideshow.isHidden = false
-        }
-        else{
-            imageSlideshow.isHidden = true
-        }
+//        pageIndicator.currentPageIndicatorTintColor =  Colors.accentColor()
+//        pageIndicator.pageIndicatorTintColor = UIColor.black
+//        pageIndicator.numberOfPages = HomeViewController.urlDetails?.banner?.count ?? 0
+//        imageSlideshow.pageIndicator = pageIndicator
+//        imageSlideshow.contentScaleMode = .scaleAspectFill
+//        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
+//        imageSlideshow.addGestureRecognizer(gestureRecognizer)
+//        if HomeViewController.urlDetails?.banner?.count ?? 0 > 0{
+//            var images = [InputSource]()
+//            for m in HomeViewController.urlDetails?.banner ?? []{
+//                if let src = KingfisherSource(urlString: m.image ?? ""){
+//                    images.append(src)
+//                }
+//            }
+//            imageSlideshow.setImageInputs(images)
+//            imageSlideshow.isHidden = false
+//        }
+//        else{
+//            imageSlideshow.isHidden = true
+//        }
         
         
     }
     
     
     @objc func didTap(){
-        let index = pageIndicator.currentPage
-        let banner = HomeViewController.urlDetails?.banner?[index]
-        gotoWebview(url: banner?.redirectUrl ?? "")
+//        let index = pageIndicator.currentPage
+//        let banner = HomeViewController.urlDetails?.banner?[index]
+//        gotoWebview(url: banner?.redirectUrl ?? "")
         
     }
    
     
     
     static func showPopup(){
-        let frequency = AppPreferences.getPopupFrequency()
-        let promptFrequency = HomeViewController.urlDetails?.prompt?.frequency ?? 0
-        if frequency < promptFrequency{
-            let title = HomeViewController.urlDetails?.prompt?.title ?? ""
-            let message = HomeViewController.urlDetails?.prompt?.message ?? ""
-            if title.count > 0{
-                Dialog.openSuccessDialog(buttonLabel: "OK".localized, title: title, msg: message, completed: {})
-                AppPreferences.setPopupFrequency(frequency: frequency+1)
-            }
-        }
+//        let frequency = AppPreferences.getPopupFrequency()
+//        let promptFrequency = HomeViewController.urlDetails?.prompt?.frequency ?? 0
+//        if frequency < promptFrequency{
+//            let title = HomeViewController.urlDetails?.prompt?.title ?? ""
+//            let message = HomeViewController.urlDetails?.prompt?.message ?? ""
+//            if title.count > 0{
+//                Dialog.openSuccessDialog(buttonLabel: "OK".localized, title: title, msg: message, completed: {})
+//                AppPreferences.setPopupFrequency(frequency: frequency+1)
+//            }
+//        }
     }
     
     //    func setupTimerForpinRefresh(){

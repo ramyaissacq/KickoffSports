@@ -73,7 +73,7 @@ class KickOffViewModel{
             }
            
         } failed: { msg in
-            Utility.showErrorSnackView(message: msg)
+          //  Utility.showErrorSnackView(message: msg)
         }
         
     }

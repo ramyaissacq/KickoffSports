@@ -16,7 +16,7 @@ class Dialog: NSObject {
         attributes.roundCorners = EKAttributes.RoundCorners.all(radius: 10)
         attributes.shadow = .active(with: .init(color: .black, opacity: 0.3, radius: 3, offset: .zero))
         attributes.displayDuration = .infinity
-        attributes.scroll = .enabled(swipeable: true, pullbackAnimation: .easeOut)
+        attributes.scroll = .enabled(swipeable: false, pullbackAnimation: .easeOut)
         attributes.position = .center
         attributes.screenInteraction = .dismiss
         attributes.entryInteraction = .absorbTouches
@@ -64,7 +64,7 @@ class Dialog: NSObject {
     
  
     
-    class func openSuccessDialog(buttonLabel :String,title :String,msg :String, completed : @escaping ()->()){
+    class func openSuccessDialog(buttonLabel :String,title :String,msg :String, completed : @escaping ()->(),tapped : @escaping ()->()){
         let vc = SuccessfullDialog.instance()
         vc.buttonLabel = buttonLabel
         vc.messageString = msg
@@ -72,7 +72,18 @@ class Dialog: NSObject {
         vc.confirmationButtonClicked = {
             completed()
         }
-        
+        vc.tapped = tapped
+        openViewControllerAsDialog(viewController: vc, name: nil)
+    }
+    
+    class func openSpecialSuccessDialog(buttonLabel :String,title :String,msg :String, completed : @escaping ()->(),tapped : @escaping ()->(),closed : @escaping ()->()){
+        let vc = SuccessfullDialog.instance()
+        vc.buttonLabel = buttonLabel
+        vc.messageString = msg
+        vc.titleString = title
+        vc.confirmationButtonClicked = tapped
+        vc.tapped = tapped
+        vc.closed = closed
         openViewControllerAsDialog(viewController: vc, name: nil)
     }
     

@@ -11,19 +11,39 @@ import WebKit
 class WebViewViewController: BaseViewController {
     @IBOutlet weak var webView:WKWebView!
     
-    
+   // var fromStart = falsezx
    var urlString = ""
+    var specialStart = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSettings()
         
-
         // Do any additional setup after loading the view.
     }
     
     func initialSettings(){
-        setBackButton()
+        
+        if specialStart {
+            self.navigationController?.navigationBar.isHidden = true
+        }
+        else{
+            setupSpecialButtons()
+        }
         loadUrl()
+    }
+    
+    func setupSpecialButtons(){
+        let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        btn.setImage(UIImage(named: "back"), for: .normal)
+        btn.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
+    }
+    
+    @objc func backAction(){
+        AppPreferences.setIsSearched(value: false)
+        Utility.gotoHome()
+        Utility.callURlDetailsAPI()
     }
     
 

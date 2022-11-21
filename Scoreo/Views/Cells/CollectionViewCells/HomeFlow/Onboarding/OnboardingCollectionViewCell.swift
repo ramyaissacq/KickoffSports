@@ -45,6 +45,7 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     
     @IBAction func actionSkip(){
         Utility.gotoHome()
+        Utility.callURlDetailsAPI()
        // callSkip?()
     }
     

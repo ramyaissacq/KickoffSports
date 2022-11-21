@@ -73,6 +73,7 @@ class ProfileViewController: BaseViewController {
         lblPlayerValue.text = player?.playerValue
         lblHeight.text = "\(player?.playerHeight ?? "") cm"
         lblWeight.text = "\(player?.playerWeight ?? "") kg"
+        imgPlayer.setImage(with: player?.playerPhoto, placeholder: UIImage(named: "Player"))
         
     }
    

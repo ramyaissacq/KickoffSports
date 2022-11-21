@@ -337,6 +337,32 @@
             </objects>
             <point key="canvasLocation" x="-559.4202898550725" y="700.44642857142856"/>
         </scene>
+        <!--Launches View Controller-->
+        <scene sceneID="a8D-al-BPq">
+            <objects>
+                <viewController storyboardIdentifier="LaunchesViewController" id="Hqu-1K-Z2E" customClass="LaunchesViewController" customModule="Scoreo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nVN-60-Eew">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="4ed-C2-fgy">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wsZ-jw-tUh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4ed-C2-fgy" firstAttribute="leading" secondItem="wsZ-jw-tUh" secondAttribute="leading" id="1g2-0Y-u9t"/>
+                            <constraint firstAttribute="bottom" secondItem="4ed-C2-fgy" secondAttribute="bottom" id="HaN-Za-eeL"/>
+                            <constraint firstItem="4ed-C2-fgy" firstAttribute="trailing" secondItem="wsZ-jw-tUh" secondAttribute="trailing" id="qHO-yt-a5K"/>
+                            <constraint firstItem="4ed-C2-fgy" firstAttribute="top" secondItem="nVN-60-Eew" secondAttribute="top" id="z2I-Df-C6h"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yem-6K-6sV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="247.82608695652175" y="700.44642857142856"/>
+        </scene>
         <!--Search View Controller-->
         <scene sceneID="HDS-ae-t5M">
             <objects>
@@ -1327,6 +1353,7 @@
     </designables>
     <resources>
         <image name="dropdown" width="16" height="16"/>
+        <image name="launch" width="1125" height="2460"/>
         <image name="noData" width="433" height="278"/>
         <image name="sport" width="58" height="58"/>
         <namedColor name="AccentColor">

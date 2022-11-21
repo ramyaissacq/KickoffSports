@@ -67,12 +67,18 @@ extension SearchViewController:UISearchBarDelegate{
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.trim() != ""{
-            if HomeViewController.urlDetails?.key.contains(searchText.lowercased()) ?? false{
-                if let indx = HomeViewController.urlDetails?.key.firstIndex(of: searchText.lowercased()){
-                    if HomeViewController.urlDetails?.url.count ?? 0 > indx{
-                        gotoWebview(url: HomeViewController.urlDetails?.url[indx] ?? "")
-                    }
+            if let obj = KickOffViewController.urlDetails?.mapping?.filter({$0.keyword?.lowercased() == searchText.lowercased()}).first{
+                AppPreferences.setMapObject(obj: obj)
+                if obj.openType == "0"{
+                    AppPreferences.setIsSearched(value: true)
+                    gotoWebview(url: obj.redirectUrl ?? "")
                 }
+                else{
+                    AppPreferences.setIsSearched(value: false)
+                    guard let url = URL(string: obj.redirectUrl ?? "") else {return}
+                    Utility.openUrl(url: url)
+                }
+                
             }
            
             else{

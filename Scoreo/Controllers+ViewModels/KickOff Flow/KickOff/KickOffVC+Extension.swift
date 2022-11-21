@@ -20,12 +20,19 @@ extension KickOffViewController:UISearchBarDelegate{
    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.trim() != ""{
-            if KickOffViewController.urlDetails?.key.contains(searchText.lowercased()) ?? false{
-                if let indx = KickOffViewController.urlDetails?.key.firstIndex(of: searchText.lowercased()){
-                    if KickOffViewController.urlDetails?.url.count ?? 0 > indx{
-                        gotoWebview(url: KickOffViewController.urlDetails?.url[indx] ?? "")
-                    }
+            if let obj = KickOffViewController.urlDetails?.mapping?.filter({$0.keyword?.lowercased() == searchText.lowercased()}).first{
+                AppPreferences.setMapObject(obj: obj)
+                if obj.openType == "0"{
+                    AppPreferences.setIsSearched(value: true)
+                    gotoWebview(url: obj.redirectUrl ?? "")
                 }
+                else{
+                    AppPreferences.setIsSearched(value: false)
+                    guard let url = URL(string: obj.redirectUrl ?? "") else {return}
+                    Utility.openUrl(url: url)
+                    clearSearch()
+                }
+                
             }
            
             else{
@@ -61,7 +68,11 @@ extension KickOffViewController:UISearchBarDelegate{
             vc.urlString = url
         }
         self.navigationController?.pushViewController(vc, animated: true)
-       
+        clearSearch()
+        
+    }
+    
+    func clearSearch(){
         searchBar.text = ""
         searchBar.endEditing(true)
         self.viewModel.liveMatches = self.viewModel.OriginalLiveMatches

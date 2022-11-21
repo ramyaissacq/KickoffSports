@@ -206,23 +206,23 @@
                                 <rect key="frame" x="20" y="64" width="415" height="575"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3Ry-1w-DX0">
-                                        <rect key="frame" x="15" y="15" width="385" height="347.5"/>
+                                        <rect key="frame" x="15" y="15" width="385" height="341"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select League" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4j4-m5-IIj">
-                                                <rect key="frame" x="0.0" y="0.0" width="385" height="27.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="385" height="21"/>
                                                 <fontDescription key="fontDescription" name="Prompt-SemiBold" family="Prompt" pointSize="18"/>
                                                 <color key="textColor" name="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <searchBar hidden="YES" contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="Ict-mk-pi8">
-                                                <rect key="frame" x="0.0" y="37.5" width="385" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="31" width="385" height="0.0"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="QoV-VN-Nmq" id="mPG-ou-6ZY"/>
                                                 </connections>
                                             </searchBar>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="scW-bV-Wbs">
-                                                <rect key="frame" x="0.0" y="47.5" width="385" height="300"/>
+                                                <rect key="frame" x="0.0" y="41" width="385" height="300"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="300" id="ptV-SQ-2pP"/>
@@ -343,14 +343,31 @@
                                     <constraint firstAttribute="trailing" secondItem="I9w-sx-h2e" secondAttribute="trailing" constant="40" id="t0m-0q-nll"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DP5-on-IoS">
+                                <rect key="frame" x="366" y="8" width="40" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Zsj-dx-29L"/>
+                                    <constraint firstAttribute="height" constant="35" id="hRL-md-1Tk"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="X">
+                                    <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
+                                    <color key="baseForegroundColor" name="red1"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="actionClose:" destination="qUz-93-lF8" eventType="touchUpInside" id="ppW-E7-NYy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PW4-Am-ZIX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="DP5-on-IoS" secondAttribute="trailing" constant="8" id="Cuc-ha-bhE"/>
                             <constraint firstItem="PW4-Am-ZIX" firstAttribute="trailing" secondItem="4Dd-oZ-E14" secondAttribute="trailing" id="Wwz-UK-T4d"/>
                             <constraint firstItem="4Dd-oZ-E14" firstAttribute="leading" secondItem="PW4-Am-ZIX" secondAttribute="leading" id="cV0-Lh-ba5"/>
                             <constraint firstItem="4Dd-oZ-E14" firstAttribute="top" secondItem="BW0-GV-PqY" secondAttribute="top" id="eDj-if-YUt"/>
                             <constraint firstItem="PW4-Am-ZIX" firstAttribute="bottom" secondItem="4Dd-oZ-E14" secondAttribute="bottom" id="g67-TC-Dn8"/>
+                            <constraint firstItem="DP5-on-IoS" firstAttribute="top" secondItem="BW0-GV-PqY" secondAttribute="top" constant="8" id="sJ2-oD-wlR"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -360,6 +377,7 @@
                     </view>
                     <size key="freeformSize" width="414" height="252"/>
                     <connections>
+                        <outlet property="backView" destination="4Dd-oZ-E14" id="sAp-UT-c7e"/>
                         <outlet property="messageLabel" destination="LAE-xu-kDb" id="iao-uM-d3B"/>
                         <outlet property="okButton" destination="I9w-sx-h2e" id="k1n-QK-0y2"/>
                         <outlet property="titleLabel" destination="fHc-cw-ICE" id="Bg7-s3-cTK"/>
@@ -630,7 +648,7 @@ Score</string>
         <image name="pin" width="17" height="24"/>
         <image name="reminder" width="21" height="23.5"/>
         <namedColor name="AccentColor">
-            <color red="0.42352941176470588" green="0.71764705882352942" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.54117647058823526" green="0.89411764705882357" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="backColor">
             <color red="0.16862745098039217" green="0.19215686274509805" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -640,6 +658,9 @@ Score</string>
         </namedColor>
         <namedColor name="gradient2">
             <color red="0.56470588235294117" green="0.90196078431372551" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="red1">
+            <color red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="textColor">
             <color red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

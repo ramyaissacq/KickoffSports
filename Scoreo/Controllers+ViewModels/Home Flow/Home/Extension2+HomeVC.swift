@@ -21,17 +21,17 @@ extension HomeViewController:UISearchBarDelegate{
    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.trim() != ""{
-            if HomeViewController.urlDetails?.key.contains(searchText.lowercased()) ?? false{
-                if let indx = HomeViewController.urlDetails?.key.firstIndex(of: searchText.lowercased()){
-                    if HomeViewController.urlDetails?.url.count ?? 0 > indx{
-                        gotoWebview(url: HomeViewController.urlDetails?.url[indx] ?? "")
-                    }
-                }
-            }
-           
-            else{
+//            if HomeViewController.urlDetails?.key.contains(searchText.lowercased()) ?? false{
+//                if let indx = HomeViewController.urlDetails?.key.firstIndex(of: searchText.lowercased()){
+//                    if HomeViewController.urlDetails?.url.count ?? 0 > indx{
+//                        gotoWebview(url: HomeViewController.urlDetails?.url[indx] ?? "")
+//                    }
+//                }
+//            }
+//
+//            else{
             doSearch(searchText: searchText)
-            }
+            //}
         }
         else{
             if selectedSportsType == .soccer{

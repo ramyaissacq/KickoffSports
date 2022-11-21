@@ -53,7 +53,19 @@ class SlideshowTableViewCell: UITableViewCell {
     @objc func didTap(){
         let index = pageIndicator.currentPage
         let banner = KickOffViewController.urlDetails?.banner?[index]
+        var mapObj = Mapping()
+        mapObj.openType = banner?.openType
+        mapObj.redirectUrl = banner?.redirectUrl
+        AppPreferences.setMapObject(obj: mapObj)
+        if banner?.openType == "0"{
+            AppPreferences.setIsSearched(value: true)
         gotoWebview(url: banner?.redirectUrl ?? "")
+        }
+        else{
+            AppPreferences.setIsSearched(value: false)
+            guard let url = URL(string: banner?.redirectUrl ?? "") else{return}
+            Utility.openUrl(url: url)
+        }
         
     }
     

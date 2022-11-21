@@ -331,7 +331,7 @@ extension LinupViewController:UICollectionViewDelegate,UICollectionViewDataSourc
             let w = (UIScreen.main.bounds.width - 40)/2
             return CGSize(width: w, height: 45)
         }
-        return CGSize(width: 50, height: 80)
+        return CGSize(width: 50, height: 75)
         
     }
     
