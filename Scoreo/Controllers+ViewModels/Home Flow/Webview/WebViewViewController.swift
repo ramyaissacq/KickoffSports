@@ -11,7 +11,7 @@ import WebKit
 class WebViewViewController: BaseViewController {
     @IBOutlet weak var webView:WKWebView!
     
-   // var fromStart = falsezx
+    var fromStart = false
    var urlString = ""
     var specialStart = false
     

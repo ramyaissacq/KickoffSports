@@ -12,7 +12,7 @@ import MOLH
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
     var window: UIWindow?
-    var load = 1
+    
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -45,10 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
     func setupLaunch(){
         if AppPreferences.getIsFirstRun(){
             Utility.gotoHome()
-            if load == 1{
-                Utility.callURlDetailsAPI()
-                load = 0
-            }
+            Utility.callURlDetailsAPI()
+            
         }
         else{
             AppPreferences.setIsFirstRun(value: true)

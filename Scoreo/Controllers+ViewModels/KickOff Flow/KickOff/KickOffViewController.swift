@@ -29,6 +29,7 @@ class KickOffViewController: BaseViewController {
     static var urlDetails:UrlDetails?
     static var popupFlag = 1
     static var timer = Timer()
+    static var fromLanguage = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,7 +125,9 @@ class KickOffViewController: BaseViewController {
     @objc func specialButtonAction() {
         if AppPreferences.getMapObject()?.openType == "0"{
             AppPreferences.setIsSearched(value: true)
-        Utility.openWebView()
+            let urlString = AppPreferences.getMapObject()?.redirectUrl ?? ""
+        gotoWebview(url: urlString)
+        
         }
         else{
             AppPreferences.setIsSearched(value: false)
@@ -197,6 +200,11 @@ class KickOffViewController: BaseViewController {
     
     static func openPrompt(){
         //
+        if KickOffViewController.fromLanguage{
+            KickOffViewController.fromLanguage = false
+            configureTimer()
+            return
+        }
         
         if KickOffViewController.popupFlag == 1{
             timer.invalidate()
